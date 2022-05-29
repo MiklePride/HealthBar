@@ -7,19 +7,19 @@
         int barPositionX = 10;
         int barPositionY = 5;
         string exitCommand = "Exit";
-        bool isExit = true;
+        bool isExit = false;
 
-        while (isExit)
+        while (isExit == false)
         {
             Console.SetCursorPosition(0, 0);
             Console.WriteLine("Сколько процентов бара здоровья вы хотите закрасить?\n" +
-                "Если хотите выйти, введите 'exit' для выхода");
+                "Если хотите выйти, введите 'Exit' для выхода");
 
             string userInput = Console.ReadLine();
 
             if (userInput == exitCommand)
             {
-                isExit = false;
+                isExit = true;
             }
             else
             {
