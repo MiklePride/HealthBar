@@ -2,12 +2,33 @@
 {
     static void Main(string[] args)
     {
-        float percentHealth = 40f;
-        float maxHealth = 10f;
-        int barPositionX = 0;
-        int barPositionY = 0;
+        float percentHealthBar = 0f;
+        float maxHealthBar = 30f;
+        int barPositionX = 10;
+        int barPositionY = 5;
+        string exitCommand = "Exit";
+        bool isExit = true;
 
-        DrawBar(percentHealth, maxHealth, ConsoleColor.Red, barPositionX, barPositionY);
+        while (isExit)
+        {
+            Console.SetCursorPosition(0, 0);
+            Console.WriteLine("Сколько процентов бара здоровья вы хотите закрасить?\n" +
+                "Если хотите выйти, введите 'exit' для выхода");
+
+            string userInput = Console.ReadLine();
+
+            if (userInput == exitCommand)
+            {
+                isExit = false;
+            }
+            else
+            {
+                percentHealthBar = Convert.ToSingle(userInput);
+            }
+            Console.Clear();
+
+            DrawBar(percentHealthBar, maxHealthBar, ConsoleColor.Red, barPositionX, barPositionY);
+        }
     }
 
     static void DrawBar(float percentageOfBar, float maxBar, ConsoleColor colorPercentBar, int positionX, int positionY)
